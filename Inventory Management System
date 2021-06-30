@@ -51,3 +51,57 @@ chat1 = ttk.Treeview(rot,height=20, columns=('name','sur','fee'), selectmode="ex
 vsb=ttk.Scrollbar(rot, orient="vertical",command=chat1.yview)
         vsb.place(x=827,y=150,height=400+20)
         chat1.configure(yscrollcommand=vsb.set)
+        
+         conn = sqlite3.connect("details.db")
+        with conn:
+            cur = conn.cursor()
+            cur.execute('SELECT id ,name, fee ,  sur FROM kistar ')
+            for row1 in cur.fetchall():
+                chat1.insert('', 0, text=row1&#91;0], values=(row1&#91;1] ,row1&#91;2],row1&#91;3]))
+
+def viewenquiry2():
+        rt = Tk()
+        rt.title("IT SOURCECODE")
+        rt.geometry("1600x1000+0+0")
+        mainlabel =Label(rt, text="VISITOR", font=("times new roman", 35), bg="black",fg="white")
+        mainlabel.pack(side=TOP, fill=X)
+        chat1 = ttk.Treeview(rt,height=20 , columns=('EMAIL', 'ENQUIRY', 'DATE'), selectmode="extended")
+        chat1.heading('#0', text='NAME', anchor=CENTER)
+        chat1.heading('#1', text='EMAIL', anchor=CENTER)
+        chat1.heading('#2', text='ENQUIRY', anchor=CENTER)
+        chat1.heading('#3', text="DATE", anchor=CENTER)
+        chat1.column('#1', stretch=YES, minwidth=50, width=100)
+        chat1.column('#3', stretch=YES, minwidth=50, width=100)
+        chat1.column('#2', stretch=YES, minwidth=50, width=300)
+        chat1.column('#0', stretch=YES, minwidth=50, width=70)
+        vsb = ttk.Scrollbar(rt, orient="vertical", command=chat1.yview)
+        vsb.place(x=955, y=170, height=400 + 20)
+        chat1.configure(yscrollcommand=vsb.set)
+        chat1.place(x=400, y=170)
+        ttk.Style().configure("Treeview", background="#383838", foreground="coral1")
+        ttk.Style().configure("Treeview.heading", background="blue", foreground="palevioletRed1")
+        rt.configure(background="white")
+        conn = sqlite3.connect("details.db")
+        with conn:
+            cur = conn.cursor()
+            cur.execute('SELECT * FROM golu')
+            for row in cur.fetchall():
+                chat1.insert('', 0, text=row&#91;0], values=(row&#91;1], row&#91;2], row&#91;3]))
+                
+                def distroy5():
+        secondw.destroy()
+        window()
+    mainlabel= Label(secondw,text="SIMPLE SCHOOL MANAGEMENT SYSTEM IN PYTHON", font=("times new roman", 35), bg="black",fg="white")
+    mainlabel.pack(side=TOP, fill=X)
+    button = Button(secondw,width=15, font=("arial", 20), text="REGISTRATION", bg="black",fg="white", command=distroy4)
+    button.place(x=10, y=480)
+    enquiry = Button(secondw, width=15, font=("arial", 20), text="FEE DETAILS", bg="black",fg="white",command=distroy5)
+    enquiry.place(x=280, y=480)
+    fee_details = Button(secondw, width=15, font=("arial", 20), text="ENQUIRY", bg="black",fg="white",command=enquiry1)
+    fee_details.place(x=560, y=480)
+    viewenquiry= Button(secondw, width=15, font=("arial", 20), text="VIEW ENQUIRY", bg="black",fg="white",command=viewenquiry2)
+    viewenquiry.place(x=840, y=480)
+    viewenquiry1 = Button(secondw, width=15, font=("arial", 20), text="STUDENT DETAILS", bg="black",fg="white",command=studentid)
+    viewenquiry1.place(x=1100, y=480)
+
+
