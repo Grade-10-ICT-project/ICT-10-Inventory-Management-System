@@ -15,3 +15,39 @@ user2.place(x=610,y=280)
 user3=Entry(width=17,show="*",bd=5,font=("arial",20))
 user3.place(x=570,y=360)
  
+ 
+def second():
+    global secondw
+    secondw=Tk()
+    secondw.title("IT SOURCECODE")
+    secondw.geometry("1600x1000+0+0")
+    def distroy4():
+        secondw.destroy()
+        root()
+    def student():
+        student1=Tk()
+        student1.title("STUDENT DETAILS")
+    def studentid():
+        rot = Tk()
+        rot.title("IT SOURCECODE")
+        rot.geometry("1600x1000+0+0")
+        mainlabel = Label(rot, text="STUDENT DETAILS", font=("times new roman", 35), bg="black",fg="white")
+        mainlabel.pack(side=TOP, fill=X)
+
+chat1 = ttk.Treeview(rot,height=20, columns=('name','sur','fee'), selectmode="extended")
+        chat1.heading('#0', text='ID', anchor=CENTER)
+        chat1.heading('#1', text=' NAME', anchor=W)
+        chat1.heading('#2', text='FEE', anchor=W)
+        chat1.heading('#3', text="LAST NAME", anchor=W)
+        chat1.column('#1', stretch=YES, minwidth=50, width=100)
+        chat1.column('#3', stretch=YES, minwidth=50, width=100)
+        chat1.column('#2', stretch=YES, minwidth=50, width=100)
+        chat1.column('#0', stretch=YES, minwidth=50, width=70)
+        chat1.place(x=470, y=130)
+        ttk.Style().configure("Treeview", background="black", foreground="coral1")
+        ttk.Style().configure("Treeview.Heading", background="blue", foreground="palevioletRed1")
+        rot.configure(background='white')
+
+vsb=ttk.Scrollbar(rot, orient="vertical",command=chat1.yview)
+        vsb.place(x=827,y=150,height=400+20)
+        chat1.configure(yscrollcommand=vsb.set)
